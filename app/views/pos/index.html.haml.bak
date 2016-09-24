@@ -1,0 +1,395 @@
+.container-fluid
+  %br
+  .row
+    .col-md-6.lhs
+      %h5 Search for products and customers
+      .input-group
+        %input.form-control{:placeholder => "Start typing or scanning...", :type => "text"}
+          %span.input-group-btn
+            %button.btn.btn-primary{:type => "button"} Go
+      %br
+      .clear
+      .row.text-xs-center
+        .col-md-4.col-sm-4.col-xs-4
+          .card{style: "border-top-color: #8BC34A;"}
+            .card-block
+              %p.card-text Product One
+        .col-md-4.col-sm-4.col-xs-4
+          .card{style: "border-top-color: #512DA8;"}
+            .card-block
+              %p.card-text Product Two
+        .col-md-4.col-sm-4.col-xs-4
+          .card{style: "border-top-color: #795548;"}
+            .card-block
+              %p.card-text Product Three
+
+      .row.text-xs-center
+        .col-md-4.col-sm-4.col-xs-4
+          .card{style: "border-top-color: #727272;"}
+            .card-block
+              %p.card-text Product Four
+        .col-md-4.col-sm-4.col-xs-4
+          .card{style: "border-top-color: #FFC107;"}
+            .card-block
+              %p.card-text Product Five
+
+    .col-md-6.rhs
+      %h5 Checkout
+      .cart
+        .row
+          .col-md-5.col-xs-4
+            %b= truncate 'Dingo Dog Bones'
+            %p.product-description
+              9781932841855
+          .col-xs-2.no-gutter.text-xs-center 
+            = fa_icon 'rupee', text: '12.99'
+          .col-xs-2.text-xs-center.no-gutter
+            = number_field_tag :item_count, 2, class: 'text-xs-center', style: 'width: 40px;'
+          .col-md-2.col-xs-3.no-gutter.text-xs-center
+            = fa_icon 'rupee', text: '25.98'
+          .col-xs-1.no-gutter
+            = link_to '#', class: 'grey', data: {confirm: 'Are you sure?'} do
+              = fa_icon "trash"
+        .row
+          .col-md-5.col-xs-4
+            %b Dingo Dog Bones
+            %p.product-description
+              = truncate "The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan."
+          .col-xs-2.no-gutter.text-xs-center 
+            = fa_icon 'rupee', text: '12.99'
+          .col-xs-2.text-xs-center.no-gutter
+            = number_field_tag :item_count, 2, class: 'text-xs-center', style: 'width: 40px;'
+          .col-md-2.col-xs-3.no-gutter.text-xs-center
+            = fa_icon 'rupee', text: '25.98'
+          .col-xs-1.no-gutter
+            = link_to '#', class: 'grey', data: {confirm: 'Are you sure?'} do
+              = fa_icon "trash"
+
+
+  %br
+  .clear
+  .row
+    .col-md-12
+      %h1 Shopping Cart
+      .shopping-cart{style: "background: #fff;"}
+        .column-labels
+          %label.product-image Image
+          %label.product-details Product
+          %label.product-price Price
+          %label.product-quantity Quantity
+          %label.product-removal Remove
+          %label.product-line-price Total
+        .product
+          .product-image
+            %img{:src => "http://s.cdpn.io/3/dingo-dog-bones.jpg"}
+          .product-details
+            .product-title Dingo Dog Bones
+            %p.product-description The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.
+          .product-price 12.99
+          .product-quantity
+            %input{:min => "1", :type => "number", :value => "2"}
+          .product-removal
+            %button.remove-product
+              Remove
+          .product-line-price 25.98
+        .product
+          .product-image
+            %img{:src => "http://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png"}
+          .product-details
+            .product-title Nutro™ Adult Lamb and Rice Dog Food
+            %p.product-description Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!
+          .product-price 45.99
+          .product-quantity
+            %input{:min => "1", :type => "number", :value => "1"}
+          .product-removal
+            %button.remove-product
+              Remove
+          .product-line-price 45.99
+        .totals
+          .totals-item
+            %label Subtotal
+            #cart-subtotal.totals-value 71.97
+          .totals-item
+            %label Tax (5%)
+            #cart-tax.totals-value 3.60
+          .totals-item
+            %label Shipping
+            #cart-shipping.totals-value 15.00
+          .totals-item.totals-item-total
+            %label Grand Total
+            #cart-total.totals-value 90.57
+        %button.checkout Checkout
+
+
+
+:scss
+  ::-webkit-input-placeholder { color: #F5F5F5; }
+  :-moz-placeholder {
+     color: #F5F5F5;
+     opacity:  1; }
+  ::-moz-placeholder {
+     color: #F5F5F5;
+     opacity: 1;}
+  :-ms-input-placeholder { color: #F5F5F5; }
+  .container-fluid { background: #F5F5F5; }
+
+  //.form-control { border: 1px solid #FFF; }
+  .lhs .card { border-top: 5px solid #8BC34A;  }
+  .card .card-block .card-text { font-size: 12px; }
+  .cart { background: #fff; border-radius: 5px; border: 1px solid #EBEBEB; padding: 10px 15px; }
+
+
+
+
+:scss
+
+  /* Global settings */
+  $color-border: #eee;
+  $color-label: #aaa;
+  $font-default: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
+
+
+  /* Global "table" column settings */
+  .product-image { float: left; width: 20%; }
+  .product-details { float: left; width: 50%; }
+  .product-price { float: left; width: 10%; }
+  .product-quantity { float: left; width: 10%; }
+  .product-removal { float: left; width: 10%; }
+  .product-line-price { float: left; width: 12%; text-align: right; }
+
+
+  /* This is used as the traditional .clearfix class */
+  .group:before,
+  .group:after {
+      content: '';
+      display: table;
+  }
+  .group:after {
+      clear: both;
+  }
+  .group {
+      zoom: 1;
+  }
+
+
+  /* Apply clearfix in a few places */
+  .shopping-cart, .column-labels, .product, .totals-item {
+    @extend .group;
+  }
+
+
+  /* Apply dollar signs */
+  .product .product-price:before, .product .product-line-price:before, .totals-value:before {
+    content: '$';
+  }
+
+
+  /* Body/Header stuff */
+  body {
+    padding: 0px 30px 30px 20px;
+    font-family: $font-default;
+    font-weight: 100;
+  }
+
+  h1 {
+    font-weight: 100;
+  }
+
+  label {
+    color: $color-label;
+  }
+
+  .shopping-cart {
+    margin-top: -45px;
+  }
+
+
+  /* Column headers */
+  .column-labels {
+    label {
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid $color-border;
+    }
+
+    .product-image, .product-details, .product-removal {
+      text-indent: -9999px;
+    }
+  }
+
+
+  /* Product entries */
+  .product {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $color-border;
+
+    .product-image {
+      text-align: center;
+      img {
+        width: 100px;
+      }
+    }
+
+    .product-details {
+      .product-title {
+        margin-right: 20px;
+        font-family: $font-bold;
+      }
+      .product-description {
+        margin: 5px 20px 5px 0;
+        line-height: 1.4em;
+      }
+    }
+
+    .product-quantity {
+      input {
+        width: 40px;
+
+      }
+    }
+
+    .remove-product {
+      border: 0;
+      padding: 4px 8px;
+      background-color: #c66;
+      color: #fff;
+      font-family: $font-bold;
+      font-size: 12px;
+      border-radius: 3px;
+    }
+
+    .remove-product:hover {
+      background-color: #a44;
+    }
+  }
+
+
+  /* Totals section */
+  .totals {
+    .totals-item {
+      float: right;
+      clear: both;
+      width: 100%;
+      margin-bottom: 10px;
+
+      label {
+        float: left;
+        clear: both;
+        width: 79%;
+        text-align: right;
+      }
+
+      .totals-value {
+        float: right;
+        width: 21%;
+        text-align: right;
+      }
+    }
+
+    .totals-item-total {
+      font-family: $font-bold;
+    }
+  }
+
+  .checkout {
+    float: right;
+    border: 0;
+    margin-top: 20px;
+    padding: 6px 25px;
+    background-color: #6b6;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 3px;
+  }
+
+  .checkout:hover {
+    background-color: #494;
+  }
+
+  /* Make adjustments for tablet */
+  @media screen and (max-width: 650px) {
+
+    .shopping-cart {
+      margin: 0;
+      padding-top: 20px;
+      border-top: 1px solid $color-border;
+    }
+
+    .column-labels {
+      display: none;
+    }
+
+    .product-image {
+      float: right;
+      width: auto;
+      img {
+        margin: 0 0 10px 10px;
+      }
+    }
+
+    .product-details {
+      float: none;
+      margin-bottom: 10px;
+      width: auto;
+    }
+
+    .product-price {
+      clear: both;
+      width: 70px;
+    }
+
+    .product-quantity {
+      width: 100px;
+      input {
+        margin-left: 20px;
+      }
+    }
+
+    .product-quantity:before {
+      content: 'x';
+    }
+
+    .product-removal {
+      width: auto;
+    }
+
+    .product-line-price {
+      float: right;
+      width: 70px;
+    }
+
+  }
+
+
+  /* Make more adjustments for phone */
+  @media screen and (max-width: 350px) {
+
+    .product-removal {
+      float: right;
+    }
+
+    .product-line-price {
+      float: right;
+      clear: left;
+      width: auto;
+      margin-top: 10px;
+    }
+
+    .product .product-line-price:before {
+      content: 'Item Total: $';
+    }
+
+    .totals {
+      .totals-item {
+        label {
+          width: 60%;
+        }
+
+        .totals-value {
+          width: 40%;
+        }
+      }
+    }
+  }

@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require font-awesome
+ *= require jquery-ui/autocomplete
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+body { font-size: 14px; }
+
+::-webkit-input-placeholder { color: #F5F5F5; }
+:-moz-placeholder { color: #F5F5F5; opacity: 1; }
+::-moz-placeholder { color: #F5F5F5; opacity: 1;}
+:-ms-input-placeholder { color: #F5F5F5; }
+
+.nogutter { padding: 0px !important; margin: 0px !important; }
+.nowrap { white-space: nowrap; }
+.noborder { border: 0px !important;}
+.grey { color: #555; }
+.light-grey { color: #aaa; }
+.block { display: block; }
+.inline { display: inline; }
+.alert {display: none;}
+
+.container-fluid { background: #F5F5F5; }
+.lhs .card { border-top: 5px solid #727272;  }
+.cart { background: #fff; border-radius: 5px; border: 1px solid #EBEBEB; padding: 15px; }
+.cart .items { min-height: 150px; max-height: 200px; overflow-y: scroll; overflow-x: hidden; }
+.cart .item { padding: 5px 0; }
+.cart .items .item { border-bottom: 1px solid #F5F5F5; }
+.cart .cart-input { width: 40px; }
+.cart .total { border-top: 1px solid #F5F5F5;}
+
+// override autocomplete styling
+.ui-autocomplete { font-size: 14px !important; }
+.ui-state-focus { background: #f6f6f6 !important; border-top: none !important; border-bottom: none !important;}

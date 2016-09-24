@@ -1,0 +1,311 @@
+.container-fluid
+  %br
+  .alert.alert-success.payment-success.alert-dismissible{role: "alert"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
+      %span{"aria-hidden" => "true"} ×
+    %strong Payment Successful
+  .alert.alert-warning.payment-warning.alert-dismissible{role: "alert"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
+      %span{"aria-hidden" => "true"} ×
+    %strong Cannnot process, cart empty!
+  .alert.alert-info.park-sale-message.alert-dismissible{role: "alert"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
+      %span{"aria-hidden" => "true"} ×
+    %strong Sale parked successfully!
+  .row
+    .col-md-6
+      Parked Sales
+    .col-md-6
+    .col-md-6
+  %hr{style: "margin: 10px 0;"}
+  .row
+    .col-md-12.lhs
+      .row
+        .col-sm-6
+          .input-group
+            %input.form-control{placeholder: "Start typing or scanning...", type: "text", id: 'search'}
+              %span.input-group-btn
+                %button.btn.btn-primary{type: "button"} Go
+
+  %hr{style: "margin: 10px 0;"}
+  .row
+    .col-md-12.rhs
+      .row
+        .col-xs-6
+          %h5.grey.inline
+            Checkout
+          %small.inline.light-grey
+            %span.items-count 1
+            item(s)
+        .col-xs-3
+          = link_to '#', class: 'pull-right grey nodeco park-sale' do
+            = fa_icon 'rotate-left', text: "Park".html_safe
+        .col-xs-3
+          = link_to '#', class: 'grey pull-right nodeco discard-sale' do
+            = fa_icon 'trash', text: "Discard".html_safe
+          
+        
+      .cart
+        .row.customer-details
+          .col-xs-4
+            = text_field_tag :customer_name, nil, class: 'customer-name form-control input-sm', placeholder: 'Name'
+          .col-xs-4
+            = text_field_tag :customer_email, nil, class: 'customer-email form-control input-sm', placeholder: 'Email'
+          .col-xs-4
+            = text_field_tag :customer_phone, nil, class: 'customer-phone form-control input-sm', placeholder: 'Phone'
+        .items
+          .row.item.noborder
+            .col-md-5.col-xs-4
+              %b.grey= truncate 'Dingo Dog Bones'
+              %small.block.light-grey.item-sku 98735625457
+              %small.block.light-grey
+                %b Denim
+                \/Blue/L(42cm)
+            .col-xs-2.nogutter.text-xs-center.nowrap
+              = fa_icon 'rupee', text: "<span class='unit-price'>1020.99</span>".html_safe
+            .col-xs-2.text-xs-center
+              = number_field_tag :item_count, 2, class: 'text-xs-center nogutter cart-quantity cart-input'
+            .col-xs-2.text-xs-center.nowrap
+              = fa_icon 'rupee', text: "<span class='quantity-price'>2041.98</span>".html_safe
+            .col-md-1.col-xs-2.text-xs-center
+              = link_to '#', class: 'grey pull-right delete-item' do
+                = fa_icon "trash"
+        .row.item.total
+          .col-md-9.col-xs-8
+            %b Sub-total
+          .col-md-2.col-xs-2.text-xs-center.nowrap
+            = fa_icon 'rupee', text: "<span class='sub-total'>2041.98</span>".html_safe
+        .row.item
+          .col-md-9.col-xs-8
+            %b Discount
+          .col-md-2.col-xs-2.text-xs-center.nowrap
+            = fa_icon 'rupee'
+            = number_field_tag :item_count, 0, class: 'text-xs-center nogutter cart-input discount'
+        .row.item
+          .col-md-9.col-xs-8
+            %b Tax
+          .col-md-2.col-xs-2.text-xs-center.nowrap
+            %span.tax 14.5
+            \%
+        .row.item.total
+          .col-md-9.col-xs-8
+            %b Total
+          .col-md-2.col-xs-2.text-xs-center.nowrap
+            %b= fa_icon 'rupee', text: "<span class='total-price'>2335.78</span>".html_safe
+        .row
+          .col-md-12
+            = link_to '#', class: 'btn btn-success pay' do
+              %b
+                Pay
+                = fa_icon 'rupee', text: "<span class='total-price'>2335.78</span>".html_safe
+
+
+:scss
+  html { background: #F5F5F5; }
+  body { font-size: 15px; }
+
+  ::-webkit-input-placeholder { color: #e4e4e4 !important; }
+  :-moz-placeholder { color: #e4e4e4 !important; opacity: 1 !important; }
+  ::-moz-placeholder { color: #e4e4e4 !important; opacity: 1 !important;}
+  :-ms-input-placeholder { color: #e4e4e4 !important; }
+
+  .nogutter { padding: 0px !important; margin: 0px !important; }
+  .nowrap { white-space: nowrap; }
+  .noborder { border: 0px !important;}
+  .nodeco {text-decoration: none !important;}
+  .grey { color: #555; }
+  .light-grey { color: #aaa; }
+  .block { display: block; }
+  .inline { display: inline; }
+  .alert { display: none; }
+  .input-sm { padding-top: 4px; padding-bottom: 4px; font-size: 14px;}
+
+  .container-fluid { background: #F5F5F5; }
+  .lhs .card { border-top: 5px solid #727272; background: #fff; }
+  .lhs .card .card-block { padding: 0.5rem !important;}
+  .recent-searches a { color: inherit; }
+
+  .customer-details { border-bottom: 1px solid #EBEBEB; padding-bottom: 15px;}
+
+  .cart { background: #fff; border-radius: 5px; border: 1px solid #EBEBEB; padding: 15px; }
+  .cart .items { min-height: 150px; max-height: 190px; overflow-y: scroll; overflow-x: hidden; padding-top: 5px;}
+  .cart .item { padding: 5px 0; }
+  .cart .items .item { border-bottom: 1px solid #F5F5F5; }
+  .cart .cart-input { width: 40px; }
+  .cart .total { border-top: 1px solid #F5F5F5; padding-bottom: 10px;}
+
+  .pay{ width: 100%; }
+
+  // override autocomplete styling
+  .ui-autocomplete { font-size: 14px !important; }
+  .ui-state-focus { background: #f6f6f6 !important; border-top: none !important; border-bottom: none !important;}
+
+  @media(max-width:768px) {
+    .recent-searches{ display: none; }
+  }
+
+:javascript
+  $( function() {
+
+    indexed_items = [
+      { "label": "Tuck Legging-Vero Moda-Denim", "value": {"name": "Tuck Legging", "sku": "5713028305389", "price": "1895", "brand": "Vero Moda", "color": "Blue", "size": "L(78cm)"} },
+      { "label": "Freedom Tee-Wrangler", "value": {"name": "Freedom Tee", "sku": "8903779136425", "price": "995", "brand": "Wrangler", "color": "Cotton White", "size": "L(107cm)"} },
+      { "label": "Elton Jeans-Wrangler-Stretch", "value": {"name": "Elton Jeans", "sku": "8907222413774", "price": "3695", "brand": "Wrangler", "color": "Sunshine Blank", "size":"36(94cm)"} },
+      { "label": "Bath Towel-Raymond", "value": {"name": "Bath Towel", "sku": "8903024836452", "price": "649", "brand": "Raymond", "color": "Blue", "size":"76cm x 1.5m"} },
+      { "label": "Classic Tee-Superdry", "value": {"name": "Real Cool Classic Tee", "sku": "5054265115141", "price": "3200", "brand": "Superdry", "color": "Princeton Blue Jaspe", "size": "XL"} },
+      { "label": "Sling Bag-Lino Perrors", "value": {"name": "Sling Bag", "sku": "8903421262885", "price": "1795", "brand": "Lino Perros", "color": "Blue", "size": "24x7x23cm"} },
+      { "label": "T-Shirt-Premium-Crocodile", "value": {"name": "T-Shirt", "sku": "8902944870379", "price": "1195", "brand": "Crocodile", "color": "Grey Nep", "size": "42cm"} },
+      { "label": "Kurti-Soch-SBLS KT", "value": {"name": "Kurti", "sku": "MD1263160", "price": "1198", "brand": "Soch", "color": "Pink", "size": "XL"} },
+      { "label": "Kurti-Soch-NC KT", "value": {"name": "Kurti", "sku": "MD1349711", "price": "1198", "brand": "Soch", "color": "Blue Royal", "size": "M"} },
+      { "label": "Plain T-Shirt-Bewakoof", "value": {"name": "Plain T-Shirt", "sku": "B11212562", "price": "345", "brand": "Bewakoof", "color": "Red13", "size": "XL"} },
+      { "label": "Printed T-Shirt-Bewakoof", "value": {"name": "Printed T-Shirt", "sku": "B11201209", "price": "445", "brand": "Bewakoof", "color": "Blue01", "size": "XL"} },
+      { "label": "Chinos-Westside", "value": {"name": "Chinos", "sku": "2050018359186", "price": "1299", "brand": "Westside", "color": "DK Brown Z", "size": "36(91cm)"} },
+      { "label": "Tee Shirt-Westside", "value": {"name": "Tee Shirt", "sku": "2050019599987", "price": "699", "brand": "Westside", "color": "MD Red", "size": "XL(44cm)"} },
+      { "label": "Knit Churidar-Fashion Big Bazaar", "value": {"name": "Knit Churidar", "sku": "305000000879981", "price": "349", "brand": "Fashion Big Bazaar", "color": "Peach", "size": "L(81cm)"} },
+      { "label": "Plain Dupatta-Fashion Big Bazaar", "value": {"name": "Plain Dupatta", "sku": "8907403918944", "price": "249", "brand": "Fashion Big Bazaar", "color": "Peach", "size": "2.5m"} }
+    ]
+
+    indexed_customers = [
+      { "label": "Minna	Amigon-2158741229", "value": {"name": "Minna Amigon", "email": "minna_amigon@yahoo.com", "phone": "2158741229"} },
+      { "label": "Alisha	Slusarski-7326583154", "value": {"name": "Alisha Slusarski", "email": "alisha@slusarski.com", "phone": "7326583154"} },
+      { "label": "Dyan	Oldroyd-9134134604", "value": {"name": "Dyan Oldroyd", "email": "doldroyd@aol.com", "phone": "9134134604"} },
+      { "label": "Elly	Morocco-8143935571", "value": {"name": "Elly Morocco", "email": "elly_morocco@gmail.com", "phone": "8143935571"} },
+      { "label": "Laurel	Reitler-4105204832", "value": {"name": "Laurel Reitler", "email": "laurel_reitler@reitler.com", "phone": "4105204832"} },
+      { "label": "Glory	Kulzer-4102249462", "value": {"name": "Glory Kulzer", "email": "", "phone": "4102249462"} },
+      { "label": "Merlyn	Lawler", "value": {"name": "Merlyn Lawler", "email": "", "phone": ""} },
+      { "label": "France	Buzick", "value": {"name": "France Buzick", "email": "", "phone": ""} },
+      { "label": "Zona	Colla", "value": {"name": "Zona Colla", "email": "", "phone": ""} },
+      { "label": "Iluminada	Ohms", "value": {"name": "Iluminada	Ohms", "email": "", "phone": ""} }
+    ]
+
+
+      $( "#search" ).autocomplete({
+        source: indexed_items,
+        select: function(event, ui) {
+          add_item_to_cart(ui.item.value);
+          update_cart();
+          $( "#search" ).val("");
+          return false;
+        }
+      });
+
+      $( "#customer_name" ).autocomplete({
+        source: indexed_customers,
+        select: function(event, ui) {
+          add_customer_to_cart(ui.item.value);
+          return false;
+        }
+      });
+
+      unique_skus = {
+        "98735625457": {"name": "Dingo Dog Bones", "sku": "98735625457", "price": "1020.99", "brand": "Denim", "color": "Blue", "size": "L(42cm)"},
+        "5713028305389": {"name": "Tuck Legging", "sku": "5713028305389", "price": "1895", "brand": "Vero Moda", "color": "Blue", "size": "L(78cm)"},
+        "8903779136425": {"name": "Freedom Tee", "sku": "8903779136425", "price": "995", "brand": "Wrangler", "color": "Cotton White", "size": "L(107cm)"},
+        "8907222413774": {"name": "Elton Jeans", "sku": "8907222413774", "price": "3695", "brand": "Wrangler", "color": "Sunshine Blank", "size":"36(94cm)"},
+        "8903024836452": {"name": "Bath Towel", "sku": "8903024836452", "price": "649", "brand": "Raymond", "color": "Blue", "size":"76cm x 1.5m"},
+        "5054265115141": {"name": "Real Cool Classic Tee", "sku": "5054265115141", "price": "3200", "brand": "Superdry", "color": "Princeton Blue Jaspe", "size": "XL"},
+        "8903421262885": {"name": "Sling Bag", "sku": "8903421262885", "price": "1795", "brand": "Lino Perros", "color": "Blue", "size": "24x7x23cm"},
+        "8902944870379": {"name": "T-Shirt", "sku": "8902944870379", "price": "1195", "brand": "Crocodile", "color": "Grey Nep", "size": "42cm"},
+        "MD1263160": {"name": "Kurti", "sku": "MD1263160", "price": "1198", "brand": "Soch", "color": "Pink", "size": "XL"},
+        "MD1349711": {"name": "Kurti", "sku": "MD1349711", "price": "1198", "brand": "Soch", "color": "Blue Royal", "size": "M"},
+        "B11212562": {"name": "Plain T-Shirt", "sku": "B11212562", "price": "345", "brand": "Bewakoof", "color": "Red13", "size": "XL"},
+        "B11201209": {"name": "Printed T-Shirt", "sku": "B11201209", "price": "445", "brand": "Bewakoof", "color": "Blue01", "size": "XL"},
+        "2050018359186": {"name": "Chinos", "sku": "2050018359186", "price": "1299", "brand": "Westside", "color": "DK Brown Z", "size": "36(91cm)"},
+        "2050019599987": {"name": "Tee Shirt", "sku": "2050019599987", "price": "699", "brand": "Westside", "color": "MD Red", "size": "XL(44cm)"},
+        "305000000879981": {"name": "Knit Churidar", "sku": "305000000879981", "price": "349", "brand": "Fashion Big Bazaar", "color": "Peach", "size": "L(81cm)"},
+        "8907403918944": {"name": "Plain Dupatta", "sku": "8907403918944", "price": "249", "brand": "Fashion Big Bazaar", "color": "Peach", "size": "2.5m"}
+      }
+
+      $('.recent-item').on('click', function(){
+        sku = $(this).find('.sku').text();
+        add_item_to_cart(unique_skus[sku]);
+        return false;
+      });
+
+      $('.discard-sale').on('click', function(){
+        empty_cart();
+        return false;
+      });
+      
+      $('.park-sale').on('click', function(){
+        total_price = parseFloat($('.total-price').text());
+        empty_cart();
+        css_class = ".payment-warning"
+        if(total_price > 0)
+          css_class = ".park-sale-message";
+        $(css_class).slideDown().delay(2000).slideUp();        
+        return false;
+      });
+
+      $('.items').on('change', '.cart-quantity', function() {
+        update_cart();
+      });
+
+      $('.discount').on('change', function() {
+        update_cart();
+      });
+
+      $('.items').on('click', '.delete-item', function() {
+        $(this).closest('.item').remove();
+        update_cart();
+        return false;
+      });
+
+      $(".pay").on('click', function(){
+        total_price = parseFloat($('.total-price').text());
+        empty_cart();
+        css_class = ".payment-warning"
+        if(total_price > 0)
+          css_class = ".payment-success";
+        $(css_class).slideDown().delay(2000).slideUp();
+        return false;
+      });
+
+
+      function update_cart(){
+        subtotal = 0
+        discount = $('.discount').val()
+        if(isNaN(discount) || discount < 0) discount = 0;
+        tax_percent = parseFloat($('.tax').text());
+        if(isNaN(tax_percent) || tax_percent < 0) tax_percent = 0;
+        $('.items-count').text($('.items .item').length); // update item count
+
+        $('.items .item').each(function() {
+          price = $(this).find('.unit-price').text();
+          quantity = $(this).find('.cart-quantity').val();
+          if (!isNaN(price) && !isNaN(quantity)) {
+            quantity_price_obj = $(this).find('.quantity-price');
+            quantity_price = (price * quantity);
+            if (quantity_price <= 0)
+              quantity_price = parseFloat(price);
+            quantity_price_obj.text(quantity_price.toFixed(2));
+            subtotal += quantity_price;
+          }
+        });
+        $('.sub-total').text(subtotal.toFixed(2));
+        total = subtotal - discount;
+        if(tax_percent > 0)
+          tax = (total * tax_percent) / 100;
+        total = total + tax;
+        if(total < 0)
+          total = 0
+        $('.total-price').text(total.toFixed(2));
+      }
+
+      function add_item_to_cart(obj){
+        $('.items').prepend("<div class='row item noborder'> <div class='col-md-5 col-xs-4'> <b class='grey'>"+obj['name']+"</b> <small class='block light-grey'>"+obj['sku']+"</small> <small class='block light-grey'> <b>"+obj['brand']+"</b> /"+obj['color']+"/"+obj['size']+" </small> </div> <div class='col-xs-2 nogutter text-xs-center nowrap'> <i class='fa fa-rupee'></i> <span class='unit-price'>"+obj['price']+"</span> </div> <div class='col-xs-2 text-xs-center'> <input type='number' name='item_count' id='item_count' value='1' class='text-xs-center nogutter cart-quantity cart-input'> </div> <div class='col-xs-2 text-xs-center nowrap'> <i class='fa fa-rupee'></i> <span class='quantity-price'>"+obj['price']+"</span> </div> <div class='col-md-1 col-xs-2 text-xs-center'> <a class='grey pull-right delete-item' href='#'><i class='fa fa-trash'></i> </a> </div> </div>");
+        update_cart();
+      }
+
+      function add_customer_to_cart(obj){
+        $('#customer_name').val(obj['name']);
+        $('#customer_email').val(obj['email']);
+        $('#customer_phone').val(obj['phone']);
+      }
+
+      function empty_cart(){
+        $(".items").empty();
+        $('.customer-details input').val('');
+        update_cart();
+      }
+    });
