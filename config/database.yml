@@ -1,5 +1,13 @@
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
   database: msco_development
-  pool: 5
+  username: root
+  password: nimbu
+
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: msco_development
+#   pool: 5
+#   username: postgres
+#   password: nimbu

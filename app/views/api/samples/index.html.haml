@@ -1,0 +1,28 @@
+.container-fluid
+  .page-header
+    %h4
+      Api Samples
+      %span.page-count (#{@samples_count})
+
+  .table-responsive
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th ID
+          %th Barcode
+          %th Http User Agent
+          %th Request URI
+          %th Status
+          %th Request Time
+
+      %tbody
+        - @samples.each do |sample|
+          %tr
+            %td= sample.id
+            %td= sample.barcode
+            %td{style: "max-width: 300px;"}= sample.http_user_agent
+            %td= link_to sample.request_uri, sample.request_uri
+            %td= sample.status
+            %td= sample.created_at.to_s(:human_readable)
+  .pull-right
+    = paginate @samples
