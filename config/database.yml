@@ -1,9 +1,5 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   database: msco_development
-  username: root
-  password: nimbu
-
-production:
-  adapter: mysql2
-  database: msco_production
+  pool: 5
