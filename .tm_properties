@@ -1,0 +1,6 @@
+# ---------------------------------------------------------
+# Exclude File(s) & Folder(s) for TextMate
+# ---------------------------------------------------------
+# exclude               = "{$exclude,Rakefile,README.rdoc,config.ru,Gemfile.lock}"
+excludeInFileChooser  = "{$excludeInFileChooser,bin,log,tmp,doc,script}"
+excludeInFolderSearch = "{$excludeInFolderSearch,bin,log,tmp,doc,script}"
