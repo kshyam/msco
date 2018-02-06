@@ -51,7 +51,7 @@ class Api::SamplesController < ApplicationController
   end
 
   def download
-    send_file "#{Rails.root}/public/msco.apk", type: "Application/octet-stream"
+    send_file "#{Rails.root}/public/msco-prototype.apk", type: "Application/octet-stream"
   end
 
   def qr_code
