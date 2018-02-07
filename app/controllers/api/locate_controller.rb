@@ -5,22 +5,22 @@ class Api::LocateController < ApplicationController
     result_hash = case params[:id].try(:downcase)
       when "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"
         {
-          uid: params[:id],
+          uuid: params[:id],
           message: 'Hey Cass, Welcome to CCC'
         }
       when "ffffffff-1234-aaaa-1a2b-a1b2c3d4e5f6"
         {
-          uid: params[:id],
+          uuid: params[:id],
           message: 'Welcome to H&M store at CCC'
         }
       # when "12345678-abcd-88cc-1111aaaa2222"
       #   {
-      #     uid: params[:id],
+      #     uuid: params[:id],
       #     message: 'Hey Cass, Welcome to CCC Store H&M'
       #   }
       # when "ffffffff-ffff-ffff-ffff-ffffffffffff"
       #   {
-      #     uid: params[:id],
+      #     uuid: params[:id],
       #     message: 'Thank you Cass, for visiting CCC'
       #   }
       else
