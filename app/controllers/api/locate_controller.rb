@@ -1,13 +1,22 @@
-class Api::SamplesController < ApplicationController
+class Api::LocateController < ApplicationController
+  def beacon
+    request_env = request.env
+    status_code = 200
+    result_hash = case params[:id].try(:downcase)
+      when "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"
+        {
+          uid: "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6",
+          message: 'Welcome to CCC'
+        }
+      else
+        status_code = 400
+        nil
+    end
 
-
-  def index
-    # render json: result.to_json
-    @samples_count = Sample.count
-    @samples = Sample.all.order("id DESC").page(params[:page]).per(50)
+    render json: result_hash.to_json
   end
 
-  def show
+  def barcode
     request_env = request.env
     status_code = 200
 
@@ -50,16 +59,7 @@ class Api::SamplesController < ApplicationController
     render json: result_hash.to_json
   end
 
-  def download
-    send_file "#{Rails.root}/public/msco-prototype.apk", type: "Application/octet-stream"
-  end
-
-  def qr_code
-    render layout: false
-  end
-
-  private
-
+private
   # invalid scans
   # single letter(when placed cross to the left or right)
   # invalid number: 3226332841853(actual scanned barcode: 9781932841855)

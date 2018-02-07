@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+    %meta{content: "Find Your Free Learning Here !", name: "description"}
+    %meta{content: "iLearn Admin", name: "author"}
+    %title Admin
+
+    = favicon_link_tag
+    = stylesheet_link_tag  'admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+  %body
+    #adminTopnav.topnav
+      %b= link_to 'Admin', '#', class: admin_active_class('home')
+      = link_to 'Open PoS', root_path, style: "border-left: 1px solid #ccc; border-right: 1px solid #ccc;", target: :_blank
+      = link_to 'API Requests', admin_api_requests_path, class: admin_active_class('api_requests')
+      %a.icon{href: "javascript:void(0);", onclick: "toggleAdminTopnav();", style: "font-weight: bold;"} &#9776;
+    .admin-container
+      = yield

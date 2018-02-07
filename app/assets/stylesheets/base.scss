@@ -1,0 +1,49 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Arial,Helvetica,Sans,Sans-Serif,Sans Serif;
+  color: #585858;
+	-webkit-font-smoothing: antialiased;
+  font-size: 12px;
+}
+
+.blue { color: #224aa7; }
+.red { color: #d42703; }
+
+.search-field input[type='text'] {
+	-moz-box-shadow: unset;
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+}
+
+.no-wrap { white-space: nowrap; }
+.no-border{ border: 0px !important; }
+.no-border-radius{ border-radius: 0px !important; }
+.no-padding { padding: 0px !important; }
+.no-padding-right{ padding-right: 0px !important; }
+.no-padding-left{ padding-left: 0px !important; }
+.no-margin {
+ margin-top: 0;
+ margin-bottom: 0;
+ margin-left: 0;
+ margin-right: 0; }
+.no-margin-bottom { margin-bottom: 0; }
+.no-gutter {
+ padding: 0 !important;
+ margin: 0 !important; }
+.no-overflow { overflow: hidden !important; }
+.no-overflow-x { overflow-x: hidden !important; }
+.no-overflow-y { overflow-y: hidden !important; }
+.no-text-indent {text-indent: 0;}
+.word-wrap { word-wrap: break-word }
+
+button, .btn { cursor: pointer; }
+a { color: #224aa7; }
+
+
+// remove placeholder on focus
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
