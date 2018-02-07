@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :api_requests, only: :index do
-    end
+    resources :api_requests, only: :index
+    
+    root to: "api_requests#index"
   end
 
   root to: 'pos#index'
