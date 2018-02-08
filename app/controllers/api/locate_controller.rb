@@ -6,12 +6,14 @@ class Api::LocateController < ApplicationController
       when "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"
         {
           uuid: params[:id],
-          message: 'Hey Cass, Welcome to CCC'
+          message: 'Welcome to CCC',
+          location: 'CCC'
         }
       when "ffffffff-1234-aaaa-1a2b-a1b2c3d4e5f6"
         {
           uuid: params[:id],
           message: 'Welcome to H&M store at CCC'
+          location: 'H&M'
         }
       # when "12345678-abcd-88cc-1111aaaa2222"
       #   {
