@@ -62,6 +62,10 @@ class Api::LocateController < ApplicationController
         result[10]
       when "2050018359186"
         result[11]
+      when "9780099594932"
+        result[12]
+      when "9780751536140"
+        result[13]
       else
         status_code = 400
         nil
@@ -131,6 +135,14 @@ private
         "price": "1299",
         "title": "Chinos(Westsport)",
         "body": "91CM, Color: DK Brown - MRP: 1299/-, Offer Price: 699/-" },
+      { "barcode": "9780099594932",
+        "price": "1600",
+        "title": "Revolution",
+        "body": "By Russell Brand(Paper Back) - MRP: 1690/-, Offer Price: 1600/-" },
+      { "barcode": "9780751536140",
+        "price": "1625",
+        "title": "The Five People You Meet in Heaven",
+        "body": "By Mitch Albom(Paper Back)" },
       { "barcode": "Not Found",
         "price": "0",
         "title": "Null",
