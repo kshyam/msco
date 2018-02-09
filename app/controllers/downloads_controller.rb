@@ -1,7 +1,7 @@
 class DownloadsController < ApplicationController
 
   def android
-    send_file "#{Rails.root}/public/msco-prototype.apk", type: "Application/octet-stream"
+    send_file "#{Rails.root}/public/msco-prototype-release.apk", type: "Application/octet-stream"
   end
 
   def qr_code
