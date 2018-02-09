@@ -2,12 +2,47 @@ class Api::LocateController < ApplicationController
   def beacon
     request_env = request.env
     status_code = 200
+    root_url = Rails.env.production? ? 'https://msco.herokuapp.com' : 'http:localhost:3000'
+
     result_hash = case params[:id].try(:downcase)
-      when "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"
+      when "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6",
+        "74278bda-b644-4520-8f0c-720eaf059935"
         {
           uuid: params[:id],
           message: 'Welcome to CCC',
-          location: 'CCC'
+          location: 'CCC',
+          offers: [
+            {
+              store_id: '001',
+              store_name: 'H&M',
+              offer: '5% Discount on clothing accessories',
+              image_url: (root_url + ActionController::Base.helpers.image_url('sale/hm.png'))
+            },
+            {
+              store_id: '002',
+              store_name: 'Landmark',
+              offer: 'Flat 50% off*',
+              image_url: (root_url + ActionController::Base.helpers.image_url('sale/landmark.png'))
+            },
+            {
+              store_id: '003',
+              store_name: 'Ralph Lauren',
+              offer: 'Overstock Sale 50% Off',
+              image_url: (root_url + ActionController::Base.helpers.image_url('sale/rlh.png'))
+            },
+            {
+              store_id: '004',
+              store_name: 'Lacoste',
+              offer: 'Up To 40% Off',
+              image_url: (root_url + ActionController::Base.helpers.image_url('sale/lacoste.png'))
+            },
+            {
+              store_id: '005',
+              store_name: 'Prada',
+              offer: '$100 OFF',
+              image_url: (root_url + ActionController::Base.helpers.image_url('sale/prada.png'))
+            }
+          ]
         }
       when "ffffffff-1234-aaaa-1a2b-a1b2c3d4e5f6"
         {
