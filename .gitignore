@@ -22,6 +22,7 @@
 /spring/*.pid
 
 # Ignore uploaded test images.
+/public/qr_code/*
 /public/uploads
 /public/system
 /public/assets
