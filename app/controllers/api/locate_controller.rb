@@ -16,31 +16,31 @@ class Api::LocateController < ApplicationController
               storeId: '001',
               storeName: 'H&M',
               offer: '5% Discount on clothing accessories',
-              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/hm.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('offers/hm.png'))
             },
             {
               storeId: '002',
               storeName: 'Landmark',
               offer: 'Flat 50% off*',
-              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/landmark.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('offers/landmark.png'))
             },
             {
               storeId: '003',
               storeName: 'Ralph Lauren',
               offer: 'Overstock Sale 50% Off',
-              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/rlh.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('offers/rlh.png'))
             },
             {
               storeId: '004',
               storeName: 'Lacoste',
               offer: 'Up To 40% Off',
-              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/lacoste.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('offers/lacoste.png'))
             },
             {
               storeId: '005',
               storeName: 'Prada',
               offer: '$100 OFF',
-              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/prada.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('offers/prada.png'))
             }
           ]
         }
