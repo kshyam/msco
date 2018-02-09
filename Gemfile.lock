@@ -196,7 +196,6 @@ DEPENDENCIES
   barby
   bootstrap (~> 4.0.0.alpha3)
   byebug
-  chunky_png
   coffee-rails (~> 4.2)
   font-awesome-rails
   haml
