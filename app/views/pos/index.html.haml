@@ -1,5 +1,6 @@
 .container-fluid
   %br
+  %br
   .alert.alert-success.payment-success.alert-dismissible{role: "alert"}
     %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
       %span{"aria-hidden" => "true"} ×
@@ -43,8 +44,8 @@
         .col-xs-3
           = link_to '#', class: 'grey pull-right nodeco discard-sale' do
             = fa_icon 'trash', text: "Discard".html_safe
-          
-        
+
+
       .cart
         .row.customer-details
           .col-xs-4
@@ -226,14 +227,14 @@
         empty_cart();
         return false;
       });
-      
+
       $('.park-sale').on('click', function(){
         total_price = parseFloat($('.total-price').text());
         empty_cart();
         css_class = ".payment-warning"
         if(total_price > 0)
           css_class = ".park-sale-message";
-        $(css_class).slideDown().delay(2000).slideUp();        
+        $(css_class).slideDown().delay(2000).slideUp();
         return false;
       });
 

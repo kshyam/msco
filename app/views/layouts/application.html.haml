@@ -17,4 +17,11 @@
     %script{"data-turbolinks-track" => "reload", src:  "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"}
 
   %body
+    %nav.navbar.navbar-expand-sm.navbar-light.bg-faded{style: "background-color: #e3f2fd;"}
+      %button.navbar-toggler{"aria-controls" => "nav-content", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#nav-content", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      / Brand
+      = link_to "POS", root_path, class: "navbar-brand"
+      = link_to (fa_icon "download", text: "Android"), qr_code_downloads_path(file: "#{apk_download_filename}"), class: 'navbar-brand pull-right'
+
     = yield

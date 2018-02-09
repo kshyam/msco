@@ -33,6 +33,9 @@ gem "font-awesome-rails"
 
 gem 'haml'
 
+gem 'barby'
+gem 'rqrcode'
+
 # paginator
 gem 'kaminari'
 
