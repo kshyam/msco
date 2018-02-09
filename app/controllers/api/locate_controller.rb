@@ -49,6 +49,14 @@ class Api::LocateController < ApplicationController
           uuid: params[:id],
           message: 'Welcome to H&M store at CCC',
           location: 'H&M'
+          offers: [
+            {
+              storeId: '001',
+              storeName: 'H&M',
+              offer: '5% Discount on clothing accessories',
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('offers/hm.png'))
+            }
+          ]
         }
       # when "12345678-abcd-88cc-1111aaaa2222"
       #   {
