@@ -48,7 +48,7 @@ class Api::LocateController < ApplicationController
         {
           uuid: params[:id],
           message: 'Welcome to H&M store at CCC',
-          location: 'H&M'
+          location: 'H&M',
           offers: [
             {
               storeId: '001',
