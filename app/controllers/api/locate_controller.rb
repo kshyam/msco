@@ -13,34 +13,34 @@ class Api::LocateController < ApplicationController
           location: 'CCC',
           offers: [
             {
-              store_id: '001',
-              store_name: 'H&M',
+              storeId: '001',
+              storeName: 'H&M',
               offer: '5% Discount on clothing accessories',
-              image_url: (root_url + ActionController::Base.helpers.image_url('sale/hm.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/hm.png'))
             },
             {
-              store_id: '002',
-              store_name: 'Landmark',
+              storeId: '002',
+              storeName: 'Landmark',
               offer: 'Flat 50% off*',
-              image_url: (root_url + ActionController::Base.helpers.image_url('sale/landmark.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/landmark.png'))
             },
             {
-              store_id: '003',
-              store_name: 'Ralph Lauren',
+              storeId: '003',
+              storeName: 'Ralph Lauren',
               offer: 'Overstock Sale 50% Off',
-              image_url: (root_url + ActionController::Base.helpers.image_url('sale/rlh.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/rlh.png'))
             },
             {
-              store_id: '004',
-              store_name: 'Lacoste',
+              storeId: '004',
+              storeName: 'Lacoste',
               offer: 'Up To 40% Off',
-              image_url: (root_url + ActionController::Base.helpers.image_url('sale/lacoste.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/lacoste.png'))
             },
             {
-              store_id: '005',
-              store_name: 'Prada',
+              storeId: '005',
+              storeName: 'Prada',
               offer: '$100 OFF',
-              image_url: (root_url + ActionController::Base.helpers.image_url('sale/prada.png'))
+              imageUrl: (root_url + ActionController::Base.helpers.image_url('sale/prada.png'))
             }
           ]
         }
