@@ -16,7 +16,7 @@ class DownloadsController < ApplicationController
     root_url = Rails.env.production? ? 'https://msco.herokuapp.com/' : 'http://localhost:3000'
 
     if File.exists?("#{Rails.root}/public/apk/#{@apk_filename}")
-      @qr_code_file_name = "#{@apk_filename.split(".")[0]}.svg"
+      @qr_code_file_name = "#{File.basename(@apk_filename, '.apk')}.svg"
       apk_file_path = "#{root_url}/downloads/android?file=#{@apk_filename}"
 
       qr_code_obj = Barby::QrCode.new(apk_file_path)
