@@ -1,5 +1,5 @@
 module ApplicationHelper
-  APK_RELEASE_VERSION = "10.2"
+  APK_RELEASE_VERSION = "10.3"
   APK_RELEASE_FILENAME_PREFIX = "msco-release"
   
   def apk_download_filename
