@@ -1,4 +1,6 @@
 class Api::LocateController < ApplicationController
+  include ApplicationHelper
+  
   def beacon
     request_env = request.env
     status_code = 200
@@ -9,8 +11,8 @@ class Api::LocateController < ApplicationController
         "74278bda-b644-4520-8f0c-720eaf059935"
         {
           uuid: params[:id],
-          message: 'Welcome to CCC',
-          location: 'CCC',
+          message: "Welcome to #{MALL_NAME}",
+          location: "#{MALL_NAME}",
           offers: [
             {
               storeId: '001',
@@ -47,7 +49,7 @@ class Api::LocateController < ApplicationController
       when "ffffffff-1234-aaaa-1a2b-a1b2c3d4e5f6"
         {
           uuid: params[:id],
-          message: 'Welcome to H&M store at CCC',
+          message: "Welcome to H&M store at #{MALL_NAME}",
           location: 'H&M',
           offers: [
             {
@@ -61,12 +63,12 @@ class Api::LocateController < ApplicationController
       # when "12345678-abcd-88cc-1111aaaa2222"
       #   {
       #     uuid: params[:id],
-      #     message: 'Hey Cass, Welcome to CCC Store H&M'
+      #     message: "Hey Cass, Welcome to #{MALL_NAME} Store H&M",
       #   }
       # when "ffffffff-ffff-ffff-ffff-ffffffffffff"
       #   {
       #     uuid: params[:id],
-      #     message: 'Thank you Cass, for visiting CCC'
+      #     message: "Thank you Cass, for visiting #{MALL_NAME}"
       #   }
       else
         status_code = 400
