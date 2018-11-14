@@ -1,0 +1,6 @@
+tasks:  
+  deploy:
+    type: deploy
+    kind: heroku
+    app: playdeal
+    token: $(HEROKU_TOKEN)
